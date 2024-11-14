@@ -1,0 +1,1 @@
+export { VocabularyGenerator } from './vocabulary-generator';
