@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Bot, Send } from 'lucide-react';
-import { getChatCompletion } from '@/lib/api';
+// import { getChatCompletion } from '@/lib/api';
 
 const situations = [
   "Comment gérer une classe de CM1-CM2 pour l'histoire de la Révolution ?",
-  "Préparer une réunion parents-profs pour un CE2 en difficulté en lecture",
+  "Préparer une réunion parents-profs pour un CE2 en difficulté  en lecture",
   "Créer une progression maths CP sur 3 semaines (nombres jusqu'à 100)",
   "Que faire avec les élèves rapides en grammaire ?",
   "Planifier une séquence sciences CE2 sur le cycle de l'eau"
@@ -31,25 +31,15 @@ export default function ChatInterface() {
     if (!inputValue.trim()) return;
 
     const userMessage = inputValue;
-    setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
+    setMessages(prev => [...prev, { type: 'user', content: userMessage, showSituations: false }]);
     setInputValue('');
     setIsTyping(true);
 
     try {
-      const apiMessages = messages
-        .filter(msg => !msg.showSituations)
-        .map(msg => ({
-          role: msg.type === 'user' ? 'user' : 'assistant',
-          content: msg.content
-        }));
-
-      apiMessages.push({ role: 'user', content: userMessage });
-
-      const response = await getChatCompletion(apiMessages);
-      
+      // Simulez une réponse sans appeler l'API
       setMessages(prev => [...prev, {
         type: 'bot',
-        content: response || "Je suis désolée, je n'ai pas pu traiter votre demande. Pourriez-vous reformuler ?"
+        content: "Fonctionnalité désactivée pour le moment."
       }]);
     } catch (error) {
       setMessages(prev => [...prev, {

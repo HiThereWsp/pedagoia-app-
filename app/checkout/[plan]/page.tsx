@@ -53,11 +53,6 @@ export default function CheckoutPage() {
                 <span>{planData.title}</span>
                 <span className="font-bold">{planData.price}{planData.interval}</span>
               </div>
-              {planData.yearlyPrice && (
-                <div className="text-sm text-gray-500">
-                  Ou {planData.yearlyPrice} par an (économisez 30%)
-                </div>
-              )}
               <div className="border-t pt-4">
                 <h3 className="font-semibold mb-2">Inclus dans votre plan :</h3>
                 <ul className="space-y-2">

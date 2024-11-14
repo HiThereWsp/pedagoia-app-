@@ -3,7 +3,6 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from "@/components/error-boundary";
 import { LandingHero } from "@/components/landing/hero";
-import { LandingFeatures } from "@/components/landing/features";
 import { LandingChallenges } from "@/components/landing/challenges";
 import { LandingMetrics } from "@/components/landing/metrics";
 import { LandingSteps } from "@/components/landing/steps";
